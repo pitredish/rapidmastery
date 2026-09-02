@@ -1,0 +1,207 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Smart Execution — Rapid Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ============================================================
+       TRACKING / PIXELS — scaffolding only. This block is hidden
+       (display:none) and holds plain escaped text, not live code,
+       so nothing fires in this preview. When you move this page
+       into WordPress, copy the snippet(s) you need out of the pre
+       block below into the real <head>, fill in your own IDs, and
+       delete this whole block.
+
+       CONSENT: wrap whichever snippet you use in
+       `if (window.rmHasConsent()) { ... }` (defined by the cookie
+       banner script just below) so it only loads after the visitor
+       accepts — and never loads at all if their browser sends a
+       Global Privacy Control signal, since the banner script
+       already treats GPC as an automatic decline.
+       ============================================================ -->
+  <div id="tracking-scaffold" style="display:none;" aria-hidden="true">
+    <pre style="white-space: pre-wrap;">
+GOOGLE TAG (GA4) — replace G-XXXXXXXXXX with your Measurement ID
+(GA4 &gt; Admin &gt; Data Streams &gt; your stream)
+
+  &lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  &lt;/script&gt;
+
+GOOGLE TAG MANAGER — replace GTM-XXXXXXX with your container ID.
+If you use GTM, you generally don't also need the gtag snippet above —
+pick one. GTM also needs a matching &lt;noscript&gt; tag right after the
+opening &lt;body&gt; tag (GTM gives you that snippet alongside this one).
+
+  &lt;script&gt;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');&lt;/script&gt;
+
+META (FACEBOOK) PIXEL — replace YOUR_PIXEL_ID
+(Meta Events Manager &gt; Data Sources &gt; your pixel &gt; Settings)
+
+  &lt;script&gt;
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  &lt;/script&gt;
+  &lt;noscript&gt;&lt;img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&amp;ev=PageView&amp;noscript=1"/&gt;&lt;/noscript&gt;
+
+OTHERS — LinkedIn Insight Tag, TikTok Pixel, Pinterest Tag, and the rest
+all follow this same shape: one script block in the head, each with its
+own ID. Add them the same way, only as you actually need them.
+    </pre>
+  </div>
+
+  <!-- ============================================================
+       COOKIE CONSENT BANNER — this part is functional, not just
+       scaffolding. It doesn't contact any tracking service itself;
+       it only remembers the visitor's choice (localStorage) and
+       exposes window.rmHasConsent(), which the real GA4/Meta Pixel
+       snippets above should check before loading. If the browser
+       sends a Global Privacy Control signal, the banner never shows
+       and consent is recorded as declined automatically — that's
+       the compliant default for the states that require honoring it.
+       ============================================================ -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie notice" hidden>
+    <div class="cookie-banner-inner">
+      <p>This site uses cookies for analytics once enabled. See the <a href="privacy.html">Privacy Policy</a> for details.</p>
+      <div class="cookie-banner-actions">
+        <button type="button" class="cookie-btn cookie-decline" id="cookie-decline">Decline</button>
+        <button type="button" class="cookie-btn cookie-accept" id="cookie-accept">Accept</button>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var KEY = 'rm_cookie_consent';
+    window.rmHasConsent = function () {
+      try { return localStorage.getItem(KEY) === 'accepted'; } catch (e) { return false; }
+    };
+    try {
+      if (navigator.globalPrivacyControl === true) {
+        // Honor the opt-out signal automatically — no prompt, no tracking.
+        localStorage.setItem(KEY, 'declined');
+      } else if (!localStorage.getItem(KEY)) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) banner.hidden = false;
+      }
+    } catch (e) { /* localStorage unavailable — banner stays hidden, default is no tracking */ }
+
+    var accept = document.getElementById('cookie-accept');
+    var decline = document.getElementById('cookie-decline');
+    var banner = document.getElementById('cookie-banner');
+    if (accept) accept.addEventListener('click', function () {
+      try { localStorage.setItem(KEY, 'accepted'); } catch (e) {}
+      if (banner) banner.hidden = true;
+    });
+    if (decline) decline.addEventListener('click', function () {
+      try { localStorage.setItem(KEY, 'declined'); } catch (e) {}
+      if (banner) banner.hidden = true;
+    });
+  })();
+  </script>
+  <!-- NAV -->
+  <div class="wrap nav">
+    <a href="index.html" style="display:flex;"><img src="logo.png" alt="Rapid Mastery" class="logo"></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="learning.html">Learning</a>
+      <a href="systems.html">Systems</a>
+      <a href="execution.html">Execution</a>
+      <a href="index.html#about">About</a>
+    </div>
+  </div>
+
+  <!-- STUB HERO -->
+  <div class="wrap stub-hero">
+    <a href="index.html" class="stub-back">&larr; Back to Rapid Mastery</a>
+    <p class="eyebrow">Pillar 03 &middot; Smart Execution</p>
+    <h1 class="stub-title">Smart Execution</h1>
+    <p class="stub-subhead">You can train for years and still not know if you&rsquo;re getting better. Most people never check.</p>
+  </div>
+
+  <!-- STUB SECTIONS -->
+  <div class="wrap" style="padding-bottom: 20px;">
+    <div class="stub-section">
+      <h2>What It Is</h2>
+      <p>Smart Execution is the pillar that turns effort into evidence. Without a feedback loop, you&rsquo;re guessing &mdash; and guessing feels a lot like progress right up until it isn&rsquo;t.</p>
+    </div>
+    <div class="stub-section">
+      <h2>The Method &mdash; TRACK</h2>
+      <p>A short loop that shows what&rsquo;s working, what&rsquo;s not, and what to adjust:</p><ul class="stub-list"><li><strong>T</strong> &mdash; Timeline: when you check, on a fixed cadence, not &ldquo;eventually.&rdquo;</li><li><strong>R</strong> &mdash; Record Progress: what actually happened, in numbers where possible.</li><li><strong>A</strong> &mdash; Analyze Gaps: where the record and the goal disagree.</li><li><strong>C</strong> &mdash; Corrective Action: the one change that closes the gap, not five.</li><li><strong>K</strong> &mdash; Keep Iterating: run it again next cycle.</li></ul>
+    </div>
+    <div class="stub-section">
+      <h2>The Tools</h2>
+      <p>The same scorecard from GO FAST, a fifteen-minute weekly review, and the willingness to change the plan instead of defending it.</p>
+    </div>
+    <div class="stub-section">
+      <h2>Where It Shows Up</h2>
+      <p>A practice log that gets reviewed, not just filled in. A weekly check that catches a plateau in week three instead of month three. A correction made while it&rsquo;s still cheap to make.</p>
+    </div>
+    <div class="stub-section">
+      <p class="stub-pairs">Read the full breakdown of <a href="track.html">TRACK</a>, or start from <a href="go-fast.html">GO FAST</a> if the sprint isn&rsquo;t built yet.</p>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="wrap" style="padding-top: 20px; padding-bottom: 80px;">
+    <div class="cta">
+      <p class="cta-eyebrow">Before You Close This Tab</p>
+      <h2 class="cta-title">Somebody with less talent than you is about to get the promotion, the solo, or the shot &mdash; because they closed the gap and you didn't.</h2>
+      <p class="cta-copy">One email a week. No pitch. Just what it actually takes to close it before someone else does.</p>
+      <!-- Kit (ConvertKit) form — replace YOUR_KIT_FORM_ID with your form's ID -->
+      <form action="https://app.kit.com/forms/YOUR_KIT_FORM_ID/subscriptions" method="post" class="cta-form">
+        <input type="email" name="email_address" id="execution-email" placeholder="you@email.com" required>
+        <button type="submit" class="cta-btn">Join the Newsletter</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="wrap footer">
+    <span class="footer-copy">&#169; 2026 Rapid Mastery</span>
+    <!-- Social icons — replace the "#" hrefs with your real profile URLs -->
+    <div class="footer-social">
+      <a href="#" aria-label="Substack">
+        <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="3.4"></rect><rect x="3" y="9" width="18" height="3.4"></rect><polygon points="3,15.6 21,15.6 12,21.6"></polygon></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+      </a>
+    </div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</body>
+</html>

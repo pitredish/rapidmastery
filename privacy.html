@@ -1,0 +1,216 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Privacy Policy — Rapid Mastery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Nunito+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<!-- ============================================================
+       TRACKING / PIXELS — scaffolding only. This block is hidden
+       (display:none) and holds plain escaped text, not live code,
+       so nothing fires in this preview. When you move this page
+       into WordPress, copy the snippet(s) you need out of the pre
+       block below into the real <head>, fill in your own IDs, and
+       delete this whole block.
+
+       CONSENT: wrap whichever snippet you use in
+       `if (window.rmHasConsent()) { ... }` (defined by the cookie
+       banner script just below) so it only loads after the visitor
+       accepts — and never loads at all if their browser sends a
+       Global Privacy Control signal, since the banner script
+       already treats GPC as an automatic decline.
+       ============================================================ -->
+  <div id="tracking-scaffold" style="display:none;" aria-hidden="true">
+    <pre style="white-space: pre-wrap;">
+GOOGLE TAG (GA4) — replace G-XXXXXXXXXX with your Measurement ID
+(GA4 &gt; Admin &gt; Data Streams &gt; your stream)
+
+  &lt;script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"&gt;&lt;/script&gt;
+  &lt;script&gt;
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  &lt;/script&gt;
+
+GOOGLE TAG MANAGER — replace GTM-XXXXXXX with your container ID.
+If you use GTM, you generally don't also need the gtag snippet above —
+pick one. GTM also needs a matching &lt;noscript&gt; tag right after the
+opening &lt;body&gt; tag (GTM gives you that snippet alongside this one).
+
+  &lt;script&gt;(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&amp;l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-XXXXXXX');&lt;/script&gt;
+
+META (FACEBOOK) PIXEL — replace YOUR_PIXEL_ID
+(Meta Events Manager &gt; Data Sources &gt; your pixel &gt; Settings)
+
+  &lt;script&gt;
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', 'YOUR_PIXEL_ID');
+    fbq('track', 'PageView');
+  &lt;/script&gt;
+  &lt;noscript&gt;&lt;img height="1" width="1" style="display:none" alt=""
+    src="https://www.facebook.com/tr?id=YOUR_PIXEL_ID&amp;ev=PageView&amp;noscript=1"/&gt;&lt;/noscript&gt;
+
+OTHERS — LinkedIn Insight Tag, TikTok Pixel, Pinterest Tag, and the rest
+all follow this same shape: one script block in the head, each with its
+own ID. Add them the same way, only as you actually need them.
+    </pre>
+  </div>
+
+  <!-- ============================================================
+       COOKIE CONSENT BANNER — this part is functional, not just
+       scaffolding. It doesn't contact any tracking service itself;
+       it only remembers the visitor's choice (localStorage) and
+       exposes window.rmHasConsent(), which the real GA4/Meta Pixel
+       snippets above should check before loading. If the browser
+       sends a Global Privacy Control signal, the banner never shows
+       and consent is recorded as declined automatically — that's
+       the compliant default for the states that require honoring it.
+       ============================================================ -->
+  <div id="cookie-banner" class="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie notice" hidden>
+    <div class="cookie-banner-inner">
+      <p>This site uses cookies for analytics once enabled. See the <a href="privacy.html">Privacy Policy</a> for details.</p>
+      <div class="cookie-banner-actions">
+        <button type="button" class="cookie-btn cookie-decline" id="cookie-decline">Decline</button>
+        <button type="button" class="cookie-btn cookie-accept" id="cookie-accept">Accept</button>
+      </div>
+    </div>
+  </div>
+  <script>
+  (function () {
+    var KEY = 'rm_cookie_consent';
+    window.rmHasConsent = function () {
+      try { return localStorage.getItem(KEY) === 'accepted'; } catch (e) { return false; }
+    };
+    try {
+      if (navigator.globalPrivacyControl === true) {
+        // Honor the opt-out signal automatically — no prompt, no tracking.
+        localStorage.setItem(KEY, 'declined');
+      } else if (!localStorage.getItem(KEY)) {
+        var banner = document.getElementById('cookie-banner');
+        if (banner) banner.hidden = false;
+      }
+    } catch (e) { /* localStorage unavailable — banner stays hidden, default is no tracking */ }
+
+    var accept = document.getElementById('cookie-accept');
+    var decline = document.getElementById('cookie-decline');
+    var banner = document.getElementById('cookie-banner');
+    if (accept) accept.addEventListener('click', function () {
+      try { localStorage.setItem(KEY, 'accepted'); } catch (e) {}
+      if (banner) banner.hidden = true;
+    });
+    if (decline) decline.addEventListener('click', function () {
+      try { localStorage.setItem(KEY, 'declined'); } catch (e) {}
+      if (banner) banner.hidden = true;
+    });
+  })();
+  </script>
+  <!-- NAV -->
+  <div class="wrap nav">
+    <a href="index.html" style="display:flex;"><img src="logo.png" alt="Rapid Mastery" class="logo"></a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle" aria-hidden="true">
+    <label for="nav-toggle" class="nav-burger" aria-label="Toggle menu">
+      <span></span><span></span><span></span>
+    </label>
+    <div class="nav-links">
+      <a href="learning.html">Learning</a>
+      <a href="systems.html">Systems</a>
+      <a href="execution.html">Execution</a>
+      <a href="index.html#about">About</a>
+    </div>
+  </div>
+
+  <!-- LEGAL HERO -->
+  <div class="wrap stub-hero">
+    <a href="index.html" class="stub-back">&larr; Back to Rapid Mastery</a>
+    <p class="eyebrow">Legal</p>
+    <h1 class="stub-title">Privacy Policy</h1>
+    <div class="legal-notice">
+      <p><strong>This is a starting template, not a finished policy.</strong> Fill in the bracketed details below and have it reviewed before you rely on it &mdash; especially once real analytics or ad pixels are turned on.</p>
+    </div>
+  </div>
+
+  <!-- LEGAL SECTIONS -->
+  <div class="wrap" style="padding-bottom: 80px;">
+    <div class="stub-section">
+      <h2>Effective Date</h2>
+      <p>[Month Day, Year]. This policy applies to [rapidmastery.com] (&ldquo;the site,&rdquo; &ldquo;we,&rdquo; &ldquo;us&rdquo;).</p>
+    </div>
+    <div class="stub-section">
+      <h2>What This Covers</h2>
+      <p>This policy explains what information the site collects, how it&rsquo;s used, and the choices you have about it. It applies to this website and the newsletter signup form on it &mdash; not to any third-party site we link to.</p>
+    </div>
+    <div class="stub-section">
+      <h2>Information We Collect</h2>
+      <ul class="stub-list"><li><strong>Newsletter signup:</strong> your email address, submitted through the form on this site and stored by our email provider, Kit (ConvertKit).</li><li><strong>Analytics &amp; advertising (only once enabled):</strong> if we turn on tools like Google Analytics or the Meta Pixel, they may collect your IP address, device and browser information, and how you interact with the site. We&rsquo;ll name the specific tools here when that happens.</li></ul>
+    </div>
+    <div class="stub-section">
+      <h2>How We Use It</h2>
+      <p>To send the newsletter you signed up for, to understand which content is actually useful, and to run the site. We don&rsquo;t sell your information, and we don&rsquo;t share your email address with anyone outside the service providers (like Kit) needed to run the newsletter.</p>
+    </div>
+    <div class="stub-section">
+      <h2>Third-Party Services</h2>
+      <p><strong>Kit (ConvertKit)</strong> processes newsletter signups on our behalf &mdash; see <a href="https://www.kit.com/privacy">Kit&rsquo;s privacy policy</a> for how they handle your data. If analytics or advertising pixels are added later (Google Analytics, Google Tag Manager, Meta Pixel), they&rsquo;ll be listed here along with links to their respective privacy policies.</p>
+    </div>
+    <div class="stub-section">
+      <h2>Cookies &amp; Tracking</h2>
+      <p>This site uses a cookie banner to ask before any non-essential (analytics/advertising) cookies are set. If your browser sends a Global Privacy Control (GPC) signal, we treat that as an automatic opt-out and skip the prompt entirely. You can change your choice at any time by clearing your browser&rsquo;s local storage for this site.</p>
+    </div>
+    <div class="stub-section">
+      <h2>Your Choices &amp; Rights</h2>
+      <p>Every newsletter email includes an unsubscribe link. To request access to, correction of, or deletion of your data, email [privacy@yourdomain.com]. If you&rsquo;re a resident of a state with its own privacy law (California, Colorado, Connecticut, and others), you may have additional rights under that law, including the right to opt out of the sale or sharing of personal information &mdash; which, as noted above, we don&rsquo;t do.</p>
+    </div>
+    <div class="stub-section">
+      <h2>Children&rsquo;s Privacy</h2>
+      <p>This site isn&rsquo;t directed at children under 13, and we don&rsquo;t knowingly collect information from them.</p>
+    </div>
+    <div class="stub-section">
+      <h2>Changes To This Policy</h2>
+      <p>We may update this policy as the site changes. The effective date at the top will always reflect the most recent version.</p>
+    </div>
+    <div class="stub-section">
+      <h2>Contact</h2>
+      <p>Questions about this policy: [privacy@yourdomain.com].</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="wrap footer">
+    <span class="footer-copy">&#169; 2026 Rapid Mastery</span>
+    <!-- Social icons — replace the "#" hrefs with your real profile URLs -->
+    <div class="footer-social">
+      <a href="#" aria-label="Substack">
+        <svg viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="3.4"></rect><rect x="3" y="9" width="18" height="3.4"></rect><polygon points="3,15.6 21,15.6 12,21.6"></polygon></svg>
+      </a>
+      <a href="#" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+      </a>
+      <a href="#" aria-label="Instagram">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg>
+      </a>
+      <a href="#" aria-label="Facebook">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path></svg>
+      </a>
+    </div>
+    <div class="footer-links">
+      <a href="privacy.html">Privacy</a>
+      <a href="terms.html">Terms</a>
+    </div>
+  </div>
+</body>
+</html>
